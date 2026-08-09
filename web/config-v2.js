@@ -1,6 +1,6 @@
 window.KIVOTOS_CONFIG = {
     appName: "키보토스 브리핑",
-    githubAppClientId: "Iv23ItHWsmz2GmltRVr",
+    githubAppClientId: "Iv23litHWsmz2GmltRVr",
     githubRepositoryId: "",
     githubOwner: "DustyClock",
     privateRepository: "kivotos-briefing-data",
