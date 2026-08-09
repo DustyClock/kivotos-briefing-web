@@ -577,7 +577,7 @@
     }
 
     await dispatch(
-      config.collectWorkflow,
+      config.collectorWorkflow,
       {
         trigger_type: "manual"
       }
