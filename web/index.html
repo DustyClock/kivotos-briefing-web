@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="블루 아카이브 한국·일본·글로벌 공식 소식 브리핑">
+  <title>키보토스 브리핑</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main>
+    <section id="login-view" class="login-shell">
+      <div class="brand-mark" aria-hidden="true">K</div>
+      <p class="eyebrow">SCH​ALE INTELLIGENCE DESK</p>
+      <h1>키보토스 브리핑</h1>
+      <p class="lead">세 지역의 공식 소식을 한곳에서 차분하게 확인하세요.</p>
+      <div class="login-card">
+        <p>뉴스 데이터와 실행 기록은 본인 인증 후에만 표시됩니다.</p>
+        <button id="login-button" class="primary">GitHub로 본인 인증</button>
+        <p id="login-help" class="muted">GitHub App 설정 전에는 미리보기 데이터만 사용할 수 있습니다.</p>
+        <div id="device-code-box" class="device-code hidden" aria-live="polite">
+          <span>GitHub에서 입력할 코드</span><strong id="device-code"></strong>
+          <a id="device-link" href="https://github.com/login/device" target="_blank" rel="noopener">GitHub 인증 화면 열기</a>
+        </div>
+        <button id="preview-button" class="ghost">화면 미리보기</button>
+      </div>
+    </section>
+
+    <section id="app-view" class="app-shell hidden">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark small">K</span><div><b>키보토스 브리핑</b><small>OFFICIAL NEWS DESK</small></div></div>
+        <div class="top-actions"><span id="auth-state" class="status-pill">미리보기</span><button id="logout-button" class="icon-button">로그아웃</button></div>
+      </header>
+
+      <nav class="tabs" aria-label="주요 메뉴">
+        <button class="tab active" data-view="latest">최신 소식</button>
+        <button class="tab" data-view="history">지난 요약</button>
+        <button class="tab" data-view="settings">예약 설정</button>
+        <button class="tab" data-view="status">상태</button>
+      </nav>
+
+      <section id="latest-panel" class="panel active">
+        <div class="hero-row">
+          <div><p class="eyebrow">TODAY'S BRIEFING</p><h2>오늘의 공식 소식</h2><p id="last-collected" class="muted">마지막 수집 시각 확인 중</p></div>
+          <button id="collect-button" class="primary">지금 수집</button>
+        </div>
+        <div class="summary-grid">
+          <article><span>신규 소식</span><strong id="new-count">0</strong><small>최근 수집 기준</small></article>
+          <article><span>다음 수집</span><strong id="next-run">09:00</strong><small>Asia/Seoul</small></article>
+          <article><span>서비스 상태</span><strong id="service-health" class="healthy">정상</strong><small id="health-detail">7개 출처</small></article>
+        </div>
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="지역 필터">
+            <button class="filter active" data-region="all">전체</button><button class="filter" data-region="kr">한국</button><button class="filter" data-region="jp">일본</button><button class="filter" data-region="global">글로벌</button>
+          </div>
+          <label class="search"><span class="sr-only">소식 검색</span><input id="search-input" type="search" placeholder="제목, 요약, 카테고리 검색"></label>
+        </div>
+        <div id="news-list" class="news-list" aria-live="polite"></div>
+        <button id="load-more" class="ghost wide hidden">더 보기</button>
+      </section>
+
+      <section id="history-panel" class="panel"><div class="section-head"><h2>지난 요약</h2><p>월별 공식 소식 기록</p></div><div id="month-list" class="month-list"></div></section>
+      <section id="settings-panel" class="panel"><div class="section-head"><h2>예약 설정</h2><p>한국 표준시 기준, 하루 최대 6개</p></div><div id="schedule-list" class="schedule-list"></div><div class="schedule-add"><input id="schedule-time" type="time" value="09:00"><button id="schedule-add" class="primary">시간 추가</button></div><button id="schedule-reset" class="danger">기본값으로 초기화</button><div class="settings-note"><b>연결 상태</b><span>Discord <i class="dot"></i> 설정 필요</span><span>번역 <i class="dot muted-dot"></i> 비용 승인 전 비활성</span></div></section>
+      <section id="status-panel" class="panel"><div class="section-head"><h2>서비스 상태</h2><p>출처별 최근 수집 결과</p></div><div id="source-status" class="source-status"></div><div id="run-history" class="run-history"></div></section>
+    </section>
+  </main>
+
+  <dialog id="confirm-dialog"><form method="dialog"><h3 id="dialog-title">확인</h3><p id="dialog-message"></p><div><button value="cancel" class="ghost">취소</button><button value="confirm" class="primary">확인</button></div></form></dialog>
+  <script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>
+
